@@ -20,3 +20,7 @@ To check the demo and documentation go to http://uikindle.com/speech/index.html
     var speech = new rsSpeech(); <br>
     speech.speak("Hello how it is going");
   </code> </pre>
+  
+  
+  The MIT License (MIT)
+  Copyright (c) 2016 Manohar Gunturu
