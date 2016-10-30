@@ -39,31 +39,30 @@ Don't run two <code>.speak()</code> at a time, instead use callback functions as
   </code> </pre>
   
   
-  <h4>Various Speech modes</h4>
-  
-  | Speech name   | lang          |
-  | ------------- |:-------------:|
-  | native        |               |
-  | Google Deutsch| de-DE         |
-  | Google US English | en-US     |
-  | Google UK English Female | en-GB     |
-  | Google UK English Male | en-GB |
-  | Google español | es-ES |
-  | Google español de Estados Unidos | es-US |
-  | Google français | fr-FR |
-  | Google हिन्दी | hi-IN |
-  | Google Bahasa Indonesia| id-ID |
-  | Google italiano | it-IT |
-  | Google 日本語 | ja-JP |
-  | Google 한국의 | ko-KR |
-  | Google Nederlands | nl-NL |
-  | Google polski | pl-PL |
-  | Google português do Brasil | pt-BR |
-  | Google русский | ru-RU |
-  | Google 普通话（中国大陆） | zh-CN |
-  | Google 粤語（香港）| zh-HK |
-  | Google 國語（臺灣）| zh-TW |
-  
+Speech name and lang table:
+
+| Speech name             | lang          |
+| ------------------------| ------------- |
+| native                  |      native   |
+| Google Deutsch          | de-DE         |
+| Google US English       | en-US     |
+| Google UK English Female| en-GB     |
+| Google UK English Male  | en-GB |
+| Google español          | es-ES  |
+| Google español de Estados Unidos | es-US |
+| Google français | fr-FR |
+| Google हिन्दी | hi-IN |
+| Google Bahasa Indonesia| id-ID |
+| Google italiano | it-IT |
+| Google 日本語 | ja-JP |
+| Google 한국의 | ko-KR |
+| Google Nederlands | nl-NL |
+| Google polski | pl-PL |
+| Google português do Brasil | pt-BR |
+| Google русский | ru-RU |
+| Google 普通话（中国大陆） | zh-CN |
+| Google 粤語（香港）| zh-HK |
+| Google 國語（臺灣）| zh-TW |  
   
   The MIT License (MIT)
   Copyright (c) 2016 Manohar Gunturu
