@@ -21,9 +21,8 @@ rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis.
     });
    
     speechRs.on("I am fine",function(){	
-      alert("user spoken I am fine");       	
-    });   
-  </code> </pre>
+      alert("user spoken I am fine");
+    });</code> </pre>
   
   <code>final_transcript</code> is full transcript that captured from beginning of recording. <code>interim_transcript</code> is recent transcript that captured after the last break.
   
@@ -31,11 +30,11 @@ rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis.
   
   <pre> <code style="white-space: pre;">
      speechRs.speechinit('Google UK English Female',function(e){
-	        speechRs.speak("Heyy how its going", function() {
+	  speechRs.speak("Heyy how its going", function() {
               speechRs.speak("This is after Heyy how its going",function(e) {	  
-		            }, false); 
-          }, false);	  
-	    });
+	      }, false); 
+          }, false);	   
+      });
   </code> </pre>
   
   The MIT License (MIT)
