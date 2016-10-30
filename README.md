@@ -8,9 +8,9 @@ rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis.
  <pre> <code style="white-space: pre;">
      speechRs.speechinit('Google UK English Female',function(e){
 	        speechRs.speak("Heyy how its going", function() {
-              //speaking completed.
-          }, false);	  
-	    });
+                   //speaking completed.
+               }, false);	  
+     });
   </code> </pre>
   
   <h4>To make your webapp listen</h4>
@@ -18,15 +18,16 @@ rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis.
   <pre> <code style="white-space: pre;">
     speechRs.rec_start('en-IN',function(final_transcript,interim_transcript){
       console.log(final_transcript,interim_transcript);
-    });
-   
+    });   
     speechRs.on("I am fine",function(){	
       alert("user spoken I am fine");
     });</code> </pre>
-  
-  <code>final_transcript</code> is full transcript that captured from beginning of recording. <code>interim_transcript</code> is recent transcript that captured after the last break.
-  
-  Don't run two <code>.speak()</code> at a time, instead use callback functions as shown below.
+
+<p>
+<code>final_transcript</code> is full transcript that captured from beginning of recording. <code>interim_transcript</code> is recent transcript that captured after the last break.
+</p>
+
+Don't run two <code>.speak()</code> at a time, instead use callback functions as shown below.
   
   <pre> <code style="white-space: pre;">
      speechRs.speechinit('Google UK English Female',function(e){
