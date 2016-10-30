@@ -63,9 +63,9 @@ speechRs.rec_start = function(l,callback){
 	 this.recognition = new webkitSpeechRecognition();
 	 this.recognition.continuous = true;
 	 this.recognition.interimResults = true;
-     this.arry_com = {};
+         this.arry_com = {};
 	 this.final_transcript = '';
-     this.recognition.lang = l;
+         this.recognition.lang = l;
 	 this.recognition.start();
 	 this.ignore_onend = false;
 	 this.recognition.onstart = function(c) {	
