@@ -1,5 +1,5 @@
 var speechRs = speechRs || {};
-speechRs.speechinit = function(lang,cb,bcolor,color,rate,pitch){
+speechRs.speechinit = function(lang,cb,bcolor,color,pitch,rate){
    this.speaker = new SpeechSynthesisUtterance();
    this.speaker.pitch=pitch || 1;
    this.speaker.rate=rate || 1;  
@@ -71,9 +71,9 @@ speechRs.rec_start = function(l,callback){
 	 this.recognition.onstart = function(c) {	
 	    
          }
-	
+	let prev_res='';
 	this.recognition.onresult = function(event) {
-			 let interim_transcript = '',prev_res='';			 
+			 let interim_transcript = '';			 
 			    if (typeof(event.results) == 'undefined') {
 			      speechRs.recognition.onend = null;
 			      speechRs.recognition.stop();
@@ -82,23 +82,24 @@ speechRs.rec_start = function(l,callback){
 			    
 			    for (var i = event.resultIndex; i < event.results.length; ++i) {
 			        if (event.results[i].isFinal) {
+				   prev_res='';
 			           speechRs.final_transcript += event.results[i][0].transcript;
-					     prev_res = "";
-			        } else {
+			           } else {
 			          interim_transcript += event.results[i][0].transcript;
-			        }
+			          
+                                 }
 			     }
-			  
+			  console.log(prev_res+","+interim_transcript);
 			  if(prev_res != interim_transcript && speechRs.arry_com[interim_transcript.toLowerCase().trim()]){				  
-				  speechRs.arry_com[interim_transcript.toLowerCase().trim()]();
-				  prev_res = interim_transcript;				  
+			       prev_res = interim_transcript;	  
+                               speechRs.arry_com[interim_transcript.toLowerCase().trim()]();
+				  				  
 			  }else{
-				  console.log("nottt");
 			  } 
 
 			    callback(speechRs.final_transcript.replace("undefined",""),interim_transcript); 
               			  
-		 }	
+		       }	
 }
 	
 speechRs.on = function(s,f){
@@ -110,4 +111,4 @@ speechRs.rec_stop = function(callback){
   this.recognition.onstop = function() {
 	 return callback(); 
   }	   
-}	
+}
