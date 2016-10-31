@@ -1,12 +1,12 @@
 var speechRs = speechRs || {};
-speechRs.speechinit = function(lang,cb,rate,pitch){
+speechRs.speechinit = function(lang,cb,bcolor,color,rate,pitch){
    this.speaker = new SpeechSynthesisUtterance();
    this.speaker.pitch=pitch || 1;
    this.speaker.rate=rate || 1;  
    this.lan = lang;
    var style = document.createElement('style');
 	style.type = 'text/css';
-	style.innerHTML = '.rsClass{background-color: rgba(18, 159, 231, 0.9);color:#fff;}';
+	style.innerHTML = '.rsClass{background-color:'+bcolor+';color:'+color+';}';
 	document.getElementsByTagName('head')[0].appendChild(style);
    setTimeout(function(){
    speechRs.speaker.voice = speechSynthesis.getVoices().
