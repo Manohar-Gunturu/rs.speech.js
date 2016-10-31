@@ -43,7 +43,7 @@ Speech name and lang table:
 
 | Speech name             | lang          |
 | ------------------------| ------------- |
-| native                  |      native   |
+| native (preferable)                  |      native   |
 | Google Deutsch          | de-DE         |
 | Google US English       | en-US     |
 | Google UK English Female| en-GB     |
