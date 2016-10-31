@@ -6,7 +6,7 @@ speechRs.speechinit = function(lang,cb,bcolor,color,rate,pitch){
    this.lan = lang;
    var style = document.createElement('style');
 	style.type = 'text/css';
-	style.innerHTML = '.rsClass{background-color:'+bcolor+';color:'+color+';}';
+	style.innerHTML = '.rsClass{background-color:'+(bcolor || "#4f91e6")+';color:'+(color || "#fff")+';}';
 	document.getElementsByTagName('head')[0].appendChild(style);
    setTimeout(function(){
    speechRs.speaker.voice = speechSynthesis.getVoices().
