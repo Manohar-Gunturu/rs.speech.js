@@ -69,8 +69,8 @@ speechRs.rec_start = function(l,callback){
 	 this.recognition.start();
 	 this.ignore_onend = false;
 	 this.recognition.onstart = function(c) {	
-		console.log("sterted",c);
-   }
+	    
+         }
 	
 	this.recognition.onresult = function(event) {
 			 let interim_transcript = '',prev_res='';			 
@@ -104,3 +104,10 @@ speechRs.rec_start = function(l,callback){
 speechRs.on = function(s,f){
 	this.arry_com[s.toLowerCase()] = f;
 } 
+
+speechRs.rec_stop = function(callback){
+  this.recognition.stop();
+  this.recognition.onstop = function() {
+	 return callback(); 
+  }	   
+}	
