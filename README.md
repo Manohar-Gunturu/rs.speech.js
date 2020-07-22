@@ -1,6 +1,6 @@
 # rs.speech.js
 Speech recognition and talk back using Javascript.
-rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis. Check at https://jsfiddle.net/gunturumanohar/u3mxghfa/ and https://jsfiddle.net/gunturumanohar/xsf3j64d/1/ .
+rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis. Check at https://jsfiddle.net/r6ftm7oq/ and https://jsfiddle.net/gunturumanohar/xsf3j64d/1/ .
 
 
 <h4>To Make Web Application speak</h4>
