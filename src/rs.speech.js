@@ -21,39 +21,40 @@ speechRs.speechinit = function(lang,cb,bcolor,color,pitch,rate){
    }
   }
   
-speechRs.speak = function(text,cb,isHiligh) {
+speechRs.speak = function(text,cb,isHighlightText) {
 	 let j=0,el,ar=[];
      speechRs.speaker.voice = speechSynthesis.getVoices().
      filter(function(voice) {  return voice.name == speechRs.lan; })[0];
 	 this.speaker.onend = function(e) {
 		cb(e);
-    };
-	if (typeof text == 'string') {
-      this.speaker.text = text;
-      speechSynthesis.speak(this.speaker);
-   } else {
-	   if(isHiligh){
+      };
+      if (typeof text == 'string') {
+        this.speaker.text = text;
+         speechSynthesis.speak(this.speaker);
+      } else {
+	   if(isHighlightText){
 		    j = 0;
-			el = text;
+		    el = text;
 		    ar = (text.innerHTML).split(".");
-			readop(ar[j]);		
-		}else{
+		    readop(ar[j]);		
+	    }else{
 		  this.speaker.text = text.innerHTML;
-        speechSynthesis.speak(this.speaker);
-		}     
-   }
+                  speechSynthesis.speak(this.speaker);
+	    }     
+       }
 	
 	function readop(x){
 	  speechRs.speaker.text = x;
 	  if(j != 0){
-	  el.querySelector(".rsClass").className = "";
+	    el.querySelector(".rsClass").className = "";
 	  }
 	  el.innerHTML = (el.innerHTML).replace(ar[j],"<span class='rsClass'>"+ar[j]+"</span>");
 	  speechSynthesis.speak(speechRs.speaker);
 	  speechRs.speaker.onend = function(e){
 	     if(ar.length>(j+1)){
-	      readop(ar[++j]);
-		  }
+	       el.innerHTML = (el.innerHTML).replace("<span class='rsClass'>"+ar[j]+"</span>", ar[j])
+	       readop(ar[++j]);
+	    }
 	  }
 	}
   }
@@ -89,7 +90,7 @@ speechRs.rec_start = function(l,callback){
 			          
                                  }
 			     }
-			  console.log(prev_res+","+interim_transcript);
+			  
 			  if(prev_res != interim_transcript && speechRs.arry_com[interim_transcript.toLowerCase().trim()]){				  
 			       prev_res = interim_transcript;	  
                                speechRs.arry_com[interim_transcript.toLowerCase().trim()]();
