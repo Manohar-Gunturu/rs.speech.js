@@ -38,20 +38,20 @@ speechRs.speak = function(text,cb,isHighlightText) {
 		    ar = (text.innerHTML).split(".");
 		    readop(ar[j]);		
 	    }else{
-		  this.speaker.text = text.innerHTML;
-                  speechSynthesis.speak(this.speaker);
-	    }     
-       }
+        this.speaker.text = text.innerHTML;
+          speechSynthesis.speak(this.speaker);
+        }     
+      }
 	
 	function readop(x){
 	  speechRs.speaker.text = x;
-	  if(j != 0){
-	    //el.querySelector(".rsClass").className = "";
+	  if(j >= ar.length && x.trim().length <= 0){
+	     return
 	  }
 	  el.innerHTML = (el.innerHTML).replace(ar[j],"<span class='rsClass'>"+ar[j]+"</span>");
 	  speechSynthesis.speak(speechRs.speaker);
 	  speechRs.speaker.onend = function(e){
-	     if(j < ar.length){
+	     if(j  < ar.length){
 	       speechRs.unwrap(document.querySelector('.rsClass'));
 	       readop(ar[++j]);
 	    }
@@ -105,13 +105,9 @@ speechRs.rec_start = function(l,callback){
 
 speechRs.unwrap = function(wrapper) {
     // place childNodes in document fragment
-    var docFrag = document.createDocumentFragment();
-    while (wrapper.firstChild) {
-        var child = wrapper.removeChild(wrapper.firstChild);
-        docFrag.appendChild(child);
-    }
-    // replace wrapper with document fragment
-    wrapper.parentNode.removeChild(document.querySelector('.rsClass'));
+   // var docFrag = document.createDocumentFragment();
+    wrapper.parentNode.insertBefore(wrapper.childNodes[0], wrapper);
+    wrapper.parentNode.removeChild(wrapper);
 }
 
 speechRs.on = function(s,f){
