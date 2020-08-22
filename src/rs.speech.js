@@ -46,7 +46,7 @@ speechRs.speak = function(text,cb,isHighlightText) {
 	function readop(x){
 	  speechRs.speaker.text = x;
 	  if(j != 0){
-	    el.querySelector(".rsClass").className = "";
+	    //el.querySelector(".rsClass").className = "";
 	  }
 	  el.innerHTML = (el.innerHTML).replace(ar[j],"<span class='rsClass'>"+ar[j]+"</span>");
 	  speechSynthesis.speak(speechRs.speaker);
