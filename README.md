@@ -13,6 +13,8 @@ rs.speech.js is written on top of Google SpeechRecognition and speechSynthesis. 
      });
   </code> </pre>
   
+  <p> The last boolean parameter of the speech function says whether to highlight the text on a dom element while reading it. Check the demos to understand the usage better. </p>
+  
   <h4>To make your webapp listen</h4>
   
   <pre> <code style="white-space: pre;">
