@@ -51,7 +51,7 @@ speechRs.speak = function(text,cb,isHighlightText) {
 	  el.innerHTML = (el.innerHTML).replace(ar[j],"<span class='rsClass'>"+ar[j]+"</span>");
 	  speechSynthesis.speak(speechRs.speaker);
 	  speechRs.speaker.onend = function(e){
-	     if(ar.length>(j+1)){
+	     if(j < ar.length){
 	       speechRs.unwrap(document.querySelector('.rsClass'));
 	       readop(ar[++j]);
 	    }
@@ -111,7 +111,7 @@ speechRs.unwrap = function(wrapper) {
         docFrag.appendChild(child);
     }
     // replace wrapper with document fragment
-    wrapper.parentNode.replaceChild(docFrag, wrapper);
+    wrapper.parentNode.removeChild(document.querySelector('.rsClass'));
 }
 
 speechRs.on = function(s,f){
