@@ -52,7 +52,7 @@ speechRs.speak = function(text,cb,isHighlightText) {
 	  speechSynthesis.speak(speechRs.speaker);
 	  speechRs.speaker.onend = function(e){
 	     if(ar.length>(j+1)){
-	       el.innerHTML = (el.innerHTML).replace("<span class='rsClass'>"+ar[j]+"</span>", ar[j])
+	       speechRs.unwrap(document.querySelector('.rsClass'));
 	       readop(ar[++j]);
 	    }
 	  }
@@ -102,7 +102,18 @@ speechRs.rec_start = function(l,callback){
               			  
 		       }	
 }
-	
+
+speechRs.unwrap = function(wrapper) {
+    // place childNodes in document fragment
+    var docFrag = document.createDocumentFragment();
+    while (wrapper.firstChild) {
+        var child = wrapper.removeChild(wrapper.firstChild);
+        docFrag.appendChild(child);
+    }
+    // replace wrapper with document fragment
+    wrapper.parentNode.replaceChild(docFrag, wrapper);
+}
+
 speechRs.on = function(s,f){
 	this.arry_com[s.toLowerCase()] = f;
 } 
